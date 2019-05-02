@@ -43,9 +43,9 @@ If you want to add a cool pattern or effect in Smart-D-LED-API, please consider 
 ## Relase History
 
 - 0.0.2 (TO-DO)
--- Fix OTA update via SPI flash
--- Fix Smart-D-LED bonjour
--- Add ON/OFF + fade for brightness control
+	- Fix OTA update via SPI flash
+	- Fix Smart-D-LED bonjour
+	- Add ON/OFF + fade for brightness control
 - 0.0.1
--- Inital release 
+	- Inital release 
 
