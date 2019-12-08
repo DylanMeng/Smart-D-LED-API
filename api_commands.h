@@ -244,18 +244,18 @@
 /*============================================================*/
 /* Predefine color palettes                                   */
 /*============================================================*/
-#define cpPartyColors	 0
-#define cpCloudColors	 1
-#define cpLavaColors	 2
-#define cpOceanColors	 3
-#define cpForestColors	 4
-#define cpRainbowColors  5
-#define cpRainbowStripeColors 6
-#define cpHeatColors 7
+#define cpPartyColors			0x0000
+#define cpCloudColors			0x0001
+#define cpLavaColors			0x0002
+#define cpOceanColors			0x0003
+#define cpForestColors			0x0004
+#define cpRainbowColors			0x0005
+#define cpRainbowStripeColors   0x0006
+#define cpHeatColors		    0x0007
 
 // Blend type
-#define cpNoBlend	  0
-#define cpLinearBlend  1
+#define cpNoBlend	  0x0000
+#define cpLinearBlend 0x0001
 
 /*============================================================*/
 /* API Error Code                                             */
