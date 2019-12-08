@@ -86,6 +86,7 @@ FlashStorage(power_max_milliamps_flash, uint16_t);
 #include "dled.h"
 #include "mic.h"
 
+#include "spi_flash.h"
 #include "ota.h"
 
 #include "Patterns/color.h"
@@ -128,7 +129,7 @@ void setup() {
 	if (first_time_prog_flash.read() != 0xAA)
 	{
 		fps_flash.write(400);			       // Default framerate is 400Hz
-		led_type_flash.write(sAPA102);		   // Default led strip is WS2812B
+		led_type_flash.write(sWS2812B);		   // Default led strip is WS2812B
 		led_color_order_flash.write(cRGB);     // Default color order is RGB - not implemented yet
 		num_leds_flash.write(60);			   // Default number of leds is 60
 		direct_wifi_flash.write(false);		   // Default wifi mode (false for router, true for direct wifi)
@@ -142,10 +143,12 @@ void setup() {
 	} 
 	
 	// Mic setup
-	mic.init();
+	//mic.init();
 
 	// Init SPI flash
-	ota.initFlash();
+	//ota.initFlash();
+	spiFlash.init(FLASH_CS_PIN);
+	spiFlash.get_info();
 
 	// Wifi setup	 
 	wifi.init();
