@@ -1,0 +1,3 @@
+[submodule "Libraries/Smart-D-LED-LIB_WiFi101"]
+	path = Libraries/Smart-D-LED-LIB_WiFi101
+	url = https://github.com/DylanMeng/Smart-D-LED-LIB_WiFi101.git
