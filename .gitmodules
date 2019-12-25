@@ -7,3 +7,12 @@
 [submodule "Libraries/Smart-D-LED-LIB_FastLED"]
 	path = Libraries/Smart-D-LED-LIB_FastLED
 	url = https://github.com/DylanMeng/Smart-D-LED-LIB_FastLED.git
+[submodule "Libraries/Smart-D-LED-LIB_FlashStorage"]
+	path = Libraries/Smart-D-LED-LIB_FlashStorage
+	url = https://github.com/DylanMeng/Smart-D-LED-LIB_FlashStorage.git
+[submodule "Libraries/Smart-D-LED-LIB_SerialFlash"]
+	path = Libraries/Smart-D-LED-LIB_SerialFlash
+	url = https://github.com/DylanMeng/Smart-D-LED-LIB_SerialFlash.git
+[submodule "Libraries/Smart-D-LED-LIB_CRC32"]
+	path = Libraries/Smart-D-LED-LIB_CRC32
+	url = https://github.com/DylanMeng/Smart-D-LED-LIB_CRC32.git
