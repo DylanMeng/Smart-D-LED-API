@@ -19,3 +19,9 @@
 [submodule "Libraries/Smart-D-LED-LIB_ArduinoSound"]
 	path = Libraries/Smart-D-LED-LIB_ArduinoSound
 	url = https://github.com/DylanMeng/Smart-D-LED-LIB_ArduinoSound.git
+[submodule "Libraries//Smart-D-LED-LIB_SerialFlashUpdater"]
+	path = Libraries//Smart-D-LED-LIB_SerialFlashUpdater
+	url = https://github.com/DylanMeng/Smart-D-LED-LIB_SerialFlashUpdater.git
+[submodule "Libraries/Smart-D-LED-LIB_SerialFlashUpdater"]
+	path = Libraries/Smart-D-LED-LIB_SerialFlashUpdater
+	url = https://github.com/DylanMeng/Smart-D-LED-LIB_SerialFlashUpdater.git
