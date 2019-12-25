@@ -16,3 +16,6 @@
 [submodule "Libraries/Smart-D-LED-LIB_CRC32"]
 	path = Libraries/Smart-D-LED-LIB_CRC32
 	url = https://github.com/DylanMeng/Smart-D-LED-LIB_CRC32.git
+[submodule "Libraries/Smart-D-LED-LIB_ArduinoSound"]
+	path = Libraries/Smart-D-LED-LIB_ArduinoSound
+	url = https://github.com/DylanMeng/Smart-D-LED-LIB_ArduinoSound.git
