@@ -4,3 +4,6 @@
 [submodule "Libraries/Smart-D-LED-LIB_WiFi101OTA"]
 	path = Libraries/Smart-D-LED-LIB_WiFi101OTA
 	url = https://github.com/DylanMeng/Smart-D-LED-LIB_WiFi101OTA.git
+[submodule "Libraries/Smart-D-LED-LIB_FastLED"]
+	path = Libraries/Smart-D-LED-LIB_FastLED
+	url = https://github.com/DylanMeng/Smart-D-LED-LIB_FastLED.git
