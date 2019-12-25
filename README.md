@@ -22,6 +22,10 @@ Your donation will help me continue the development and support of Smart-D-LED.
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/DMeng)
 
+## Setup
+
+- Now using forked external library, to be able to compile please use visual studio with vmicro.
+
 ## Contribution
 
 If you want to add a cool pattern or effect in Smart-D-LED-API, please consider this: 
