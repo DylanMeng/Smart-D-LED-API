@@ -70,8 +70,7 @@ public:
 			}
 		}
 
-		//SmartdledBonjour.begin("Smart-D-LED"); // Start bonjour
-		WiFiOTA.begin("SMART-D-LED", "ZTkNxAW3fv", SerialFlashStorage); // Start over the air update support with external flash storage		
+		WiFiOTA.begin("SMART-D-LED", "ZTkNxAW3fv", SerialFlashStorage); // Start over the air update support with external flash storage and mdns request		
 	}
 
 	void verify() {

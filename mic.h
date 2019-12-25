@@ -10,7 +10,7 @@
 class micClass {
 
 protected:
-	AmplitudeAnalyzer amplitudeAnalyzer;
+	//AmplitudeAnalyzer amplitudeAnalyzer;
 	int lastAmplitude;
 
 public:
@@ -19,17 +19,17 @@ public:
 
 	int init() {
 		// setup the I2S audio input for 44.1 kHz with 32-bits per sample
-		if (!AudioInI2S.begin(44100, 32)) {
+		//if (!AudioInI2S.begin(44100, 32)) {
 			DEBUG_PRINT_LN("Failed to initialize I2S input!");
 			available = false;
 			return NULL;
-		}
+		//}
 		// configure the I2S input as the input for the amplitude analyzer
-		if (!amplitudeAnalyzer.input(AudioInI2S)) {
+		//if (!amplitudeAnalyzer.input(AudioInI2S)) {
 			DEBUG_PRINT_LN("Failed to set amplitude analyzer input!");
 			available = false;
 			return NULL;
-		}
+		//}
 		DEBUG_PRINT_LN("MIC GOOD");
 		return true;
 
@@ -37,10 +37,10 @@ public:
 	
 	int readAmplitudeRaw() {
 		// check if a new analysis is available
-		if (amplitudeAnalyzer.available()) {
+		//if (amplitudeAnalyzer.available()) {
 			// read the new amplitude
-			return amplitudeAnalyzer.read();
-		}
+			//return amplitudeAnalyzer.read();
+		//}
 	}
 
 	int readAmplitudeDelta() {

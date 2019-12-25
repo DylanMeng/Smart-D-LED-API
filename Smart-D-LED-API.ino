@@ -18,21 +18,23 @@
 
 /*============================================================*/
 /* Import library                                             */
-/*============================================================*/  
-//#include <SFU.h>				   // Add support for serial flash update       (LGPL-2.1)  
-#include <FastLED.h>		       // Add support to control digital LED strip  (MIT)
-#include <SPI.h>				   // Add support for SPI device				(LGPL-2.1)
-#include <WiFi101.h>		       // Add support for ATWINC1500				(LGPL-2.1)
-#include <WiFi101OTA.h>		       // Add support for over the air update       (LGPL-2.1)
-#include <WiFiUdp.h>		       // Add support for udp protocol			    (LGPL-2.1)
-//#include <Smart_D_LED_Bonjour.h>   // Add support for Smart-D-LED Bonjour       (LGPL-2.1 - Modification of Wifi101OTA)
-#include <FlashStorage.h>		   // Add support for internal flash			(LGPL-2.1)
-#include <wiring_private.h>        // Add support for custom pin definition     (LGPL-2.1)
-#include <SerialFlash.h>           // Add support for SPI flash				    (MIT)
-#include <ArduinoSound.h>		   // Add support for I2S mic					(LGPL-2.1)
-#include <CRC32.h>				   // Add support for CRC32					    (MIT)
+/*============================================================*/
+#include <SPI.h>				// Add support for SPI device		      (LGPL-2.1)
+#include <wiring_private.h>		// Add support for custom pin definition  (LGPL-2.1)
 
-#include "api_commands.h"		   // Add all API command
+// Forked external libaries in project folder (GIT - SUBMODULE)
+#include <WiFi101.h>			// Add support for ATWINC1500			  (LGPL-2.1) - Modified
+#include <WiFi101OTA.h>			// Add support for over the air update    (LGPL-2.1) - Modified
+#include <WiFiUdp.h>		    // Add support for over the air update	  (LGPL-2.1)
+#include <SerialFlashUpdater.h> // Add support for serial flash update    (LGPL-2.1)  
+
+#include <FastLED.h>		// Add support to control digital LED strip   (MIT)	   
+#include <FlashStorage.h>	// Add support for internal flash			  (LGPL-2.1) 
+#include <SerialFlash.h>    // Add support for SPI flash				  (MIT)	   
+#include <CRC32.h>			// Add support for CRC32					  (MIT)	   
+//#include <ArduinoSound.h>	// Add support for I2S mic					  (LGPL-2.1)
+
+#include "api_commands.h"	// Add all API command
 
 /*============================================================*/
 /* Version control                                            */
