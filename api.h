@@ -20,9 +20,9 @@ protected:
 	void decode(uint16_t aCommand) {
 		switch (aCommand) {
 
-			/*============================================================*/
-			/* LED critical configuration                                 */
-			/*============================================================*/
+		/*============================================================*/
+		/* LED critical configuration                                 */
+		/*============================================================*/
 		case mSetLedType:
 			led_type_flash.write(wifi.packetBuffer[4]);
 			replyHex(mSetLedType, NULL, NULL);
@@ -207,20 +207,21 @@ protected:
 		/* Confetti                                                   */
 		/*============================================================*/
 		case mSetConfetti:
-			confetti.fade = wifi.packetBuffer[4];
+			confetti.fade		  = wifi.packetBuffer[4];
 			confetti.rotateEnable = wifi.packetBuffer[5];
-			confetti.hue = wifi.packetBuffer[6];
-			confetti.saturation = wifi.packetBuffer[7];
-			confetti.random = wifi.packetBuffer[8];
-			pattern.select = pConfetti;
+			confetti.hue		  = wifi.packetBuffer[6];
+			confetti.saturation   = wifi.packetBuffer[7];
+			confetti.random		  = wifi.packetBuffer[8];
+			pattern.select		  = pConfetti;
 			break;
 
-		case mGetConfetti:
-			/*replyBuffer[2] = confetti.fade;
-			replyBuffer[3] = confetti.hue;
-			replyBuffer[4] = confetti.saturation;
-			replyBuffer[5] = confetti.random;*/
-			replyHex(mGetConfetti, 4, NULL);
+		case mGetConfetti: 
+			replyBuffer[2] = confetti.fade;
+			replyBuffer[3] = confetti.rotateEnable;
+			replyBuffer[4] = confetti.hue;
+			replyBuffer[5] = confetti.saturation;
+			replyBuffer[6] = confetti.random;
+			replyHex(mGetConfetti, 6, NULL);
 			break;
 
 		/*============================================================*/
@@ -228,23 +229,20 @@ protected:
 		/*============================================================*/
 		case mSetSinelon:
 			sinelon.rotateEnable = wifi.packetBuffer[4];
-			sinelon.fade = wifi.packetBuffer[5];
-			sinelon.bpm = wifi.packetBuffer[6];
-			sinelon.hue = wifi.packetBuffer[7];
-			sinelon.saturation = wifi.packetBuffer[8];
-			pattern.select = pSinelon;
+			sinelon.fade		 = wifi.packetBuffer[5];
+			sinelon.bpm			 = wifi.packetBuffer[6];
+			sinelon.hue			 = wifi.packetBuffer[7];
+			sinelon.saturation   = wifi.packetBuffer[8];
+			pattern.select	     = pSinelon;
 			break;
 
 		case mGetSinelon:
-			/*replyBuffer[2] = sinelon.fade;
-			replyBuffer[3] = sinelon.bpm; 
-			replyBuffer[4] = sinelon.rotateEnable;
+			replyBuffer[2] = sinelon.rotateEnable;
+			replyBuffer[3] = sinelon.fade;
+			replyBuffer[4] = sinelon.bpm; 
 			replyBuffer[5] = sinelon.hue;
 			replyBuffer[6] = sinelon.saturation;
-			replyBuffer[7] = sinelon.hueRotation;
-			replyBuffer[8] = sinelon.hueSpeed;
-			replyBuffer[9] = sinelon.speed;*/
-			replyHex(mGetSinelon, 8, NULL);
+			replyHex(mGetSinelon, 6, NULL);
 			break;
 
 		/*============================================================*/
@@ -252,57 +250,63 @@ protected:
 		/*============================================================*/
 		case mSetPulse:
 			pulse.rotateEnable = wifi.packetBuffer[4];
-			pulse.bpm = wifi.packetBuffer[5];
-			pulse.hue = wifi.packetBuffer[6];
+			pulse.bpm		   = wifi.packetBuffer[5];
+			pulse.hue		   = wifi.packetBuffer[6];
 			pulse.setPalette(wifi.packetBuffer[7]);
-			pattern.select = pPulse;
+			pattern.select	   = pPulse;
 			break;
 
 		case mGetPulse:
-			/*replyBuffer[2] = spBPM;
-			replyBuffer[3] = spRotatingHues;
-			replyBuffer[4] = spSpeed;
-			replyBuffer[5] = spHue;
-			replyBuffer[6] = spRotationToggle;
-			replyHex(mGetPulse, 5, NULL);*/
+			replyBuffer[2] = pulse.rotateEnable;
+			replyBuffer[3] = pulse.bpm;
+			replyBuffer[4] = pulse.hue;
+			replyBuffer[5] = pulse.paletteId;
+			replyHex(mGetPulse, 4, NULL);
 			break;
 		
+		/*============================================================*/
+		/* Juggle                                                     */
+		/*============================================================*/
 		case mSetJuggle:
-			juggle.fade = wifi.packetBuffer[4];
+			juggle.fade	       = wifi.packetBuffer[4];
 			juggle.hueRotation = wifi.packetBuffer[5];
-			juggle.saturation = wifi.packetBuffer[6];
-			pattern.select = pJuggle;
+			juggle.saturation  = wifi.packetBuffer[6];
+			pattern.select	   = pJuggle;
 			break;
 		
 		case mGetJuggle:
+			replyBuffer[2] = juggle.fade;
+			replyBuffer[3] = juggle.hueRotation;
+			replyBuffer[4] = juggle.saturation;
+			replyHex(mGetJuggle, 3, NULL);
 			break;
 
-
-			/*============================================================*/
-			/* Vu Meter                                                   */
-			/*============================================================*/
+		/*============================================================*/
+		/* Vu Meter                                                   */
+		/*============================================================*/
 		case mSetVuMeter:
-			/*vumeter.inputFloor = wifi.packetBuffer[4];
-			vumeter.inputCeiling = wifi.packetBuffer[5];
-			vumeter.fallingDotEnable = wifi.packetBuffer[6];
-			vumeter.fallingDotHang = wifi.packetBuffer[7];
-			vumeter.fallingDotFall = wifi.packetBuffer[8];
-			vumeter.fallingDotHue = wifi.packetBuffer[9];
-			vumeter.fallingDotSat = wifi.packetBuffer[10];*/
+			vumeter.inputFloor		 = (uint16_t)wifi.packetBuffer[4] | wifi.packetBuffer[5] << 8;
+			vumeter.inputCeiling	 = (uint16_t)wifi.packetBuffer[6] | wifi.packetBuffer[7] << 8;
+			vumeter.fallingDotEnable = wifi.packetBuffer[8];
+			vumeter.fallingDotHang	 = wifi.packetBuffer[9];
+			vumeter.fallingDotFall	 = wifi.packetBuffer[10];
+			vumeter.fallingDotHue	 = wifi.packetBuffer[11];
+			vumeter.fallingDotSat	 = wifi.packetBuffer[12];
 			effect.select = eVuMeter;
 			break;
 
 		case mGetVuMeter:
-			replyBuffer[2] = vumeter.inputFloor;
-			replyBuffer[3] = vumeter.inputCeiling;
-			replyBuffer[4] = vumeter.fallingDotEnable;
-			replyBuffer[5] = vumeter.fallingDotHang;
-			replyBuffer[6] = vumeter.fallingDotFall;
-			replyBuffer[7] = vumeter.fallingDotHue;
-			replyBuffer[8] = vumeter.fallingDotSat;
-			replyHex(mGetVuMeter, 8, NULL);
+			replyBuffer[2]  = (uint8_t)vumeter.inputFloor;
+			replyBuffer[3]  = (uint8_t)(vumeter.inputFloor >> 8);
+			replyBuffer[4]  = (uint8_t)vumeter.inputCeiling;
+			replyBuffer[5]  = (uint8_t)(vumeter.inputCeiling >> 8);
+			replyBuffer[6]  = vumeter.fallingDotEnable;
+			replyBuffer[7]  = vumeter.fallingDotHang;
+			replyBuffer[8]  = vumeter.fallingDotFall;
+			replyBuffer[9]  = vumeter.fallingDotHue;
+			replyBuffer[10] = vumeter.fallingDotSat;
+			replyHex(mGetVuMeter, 9, NULL);
 			break;
-
 	
 		/*============================================================*/
 		/* HSV Color Picker                                           */
@@ -363,7 +367,7 @@ protected:
 			fire.sparking  = wifi.packetBuffer[5];
 			fire.cooling   = wifi.packetBuffer[6];
 			fire.palette   = wifi.packetBuffer[7];
-			pattern.select = pFire;
+			pattern.select = pFirePalette;
 			break;
 
 		case mGetFire:
@@ -443,9 +447,8 @@ protected:
 		/* Palette Fill                                               */
 		/*============================================================*/
 		case mSetPaletteFill:
-			palette.speed = wifi.packetBuffer[4];
-			palette.movingSpeed = wifi.packetBuffer[5];
-			palette.setPalette(wifi.packetBuffer[7], wifi.packetBuffer[8]);
+			palette.speed		= wifi.packetBuffer[4];
+			palette.setPalette(wifi.packetBuffer[5], wifi.packetBuffer[6]);
 			pattern.select = pPaletteFill;
 			break;
 
