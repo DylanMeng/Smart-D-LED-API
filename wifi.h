@@ -13,8 +13,6 @@ protected:
 
 	uint8_t wifiStatus;
 
-	const char apSsid[12] = "Smart-D-LED";
-
 	boolean wifiReconnect(byte attempts) {
 		byte nAttempts = 0;
 		do {
@@ -47,7 +45,15 @@ public:
 	int32_t rssi; // WiFi Signal Strength
 	bool wifiReconnected = false; // Reconnect flag to reset udp, bonjour, etc...
 
+	char apSsid[17] = "Smart-D-LED";
+
 	void init() {
+
+		uint8_t mac[6];
+		char name[17];
+		WiFi.macAddress(mac);
+		sprintf(apSsid, "Smart-D-LED-%.2X%.2X", mac[6], mac[5]);
+
 		WiFi.setPins(WINC_CS, WINC_IRQ, WINC_RST, WINC_EN); // ATWINC1500 pin config
 
 		// Check if the wifi module is working correctly
@@ -70,7 +76,8 @@ public:
 			}
 		}
 
-		WiFiOTA.begin("SMART-D-LED", "ZTkNxAW3fv", SerialFlashStorage); // Start over the air update support with external flash storage and mdns request		
+		// Set unique identifer with part of the mac address (required for auto discovery)
+		WiFiOTA.begin(apSsid, "ZTkNxAW3fv", SerialFlashStorage); // Start over the air update support with external flash storage and mdns request		
 	}
 
 	void verify() {
