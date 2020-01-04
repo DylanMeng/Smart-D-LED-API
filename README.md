@@ -22,6 +22,10 @@ Your donation will help me continue the development and support of Smart-D-LED.
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/DMeng)
 
+## Note
+
+- The code structure is not optimal per C standard. I decide to keep this structure for easier integration for beginner and Arduino users.
+
 ## Setup
 
 - Now using forked external library, to be able to compile please use visual studio with vmicro.
