@@ -1,13 +1,11 @@
 class colorClass {
 
-protected:
-
 public:
 
 	// RGB Color
-	uint8_t red;
-	uint8_t green;
-	uint8_t blue;
+	uint8_t red	  = 0x2B;
+	uint8_t green = 0x2D;
+	uint8_t blue  = 0x5C;
 
 	// HSV Color
 	uint8_t hue = 215;
@@ -29,7 +27,6 @@ public:
 			dled.leds[i] = CRGB(red, green, blue);
 		}
 	}
-
 
 };
 

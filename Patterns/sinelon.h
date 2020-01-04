@@ -12,13 +12,10 @@ class sinelonClass {
 public:
 
 	uint8_t rotateEnable = 0x00;
-	
-	uint8_t hue;
-	uint8_t saturation;
-
-	uint8_t fade = 20;
-	uint8_t bpm = 13;
-
+	uint8_t fade		 = 0x10;
+	uint8_t bpm			 = 0x10;
+	uint8_t hue		     = 0x00;
+	uint8_t saturation   = 0x00;
 	
 	void refresh()
 	{

@@ -12,12 +12,9 @@ class confettiClass {
 public:
 
 	uint8_t rotateEnable = 0x00;
-	
 	uint8_t hue = 100;
 	uint8_t saturation = 200;
-
-	uint8_t fade = 10;
-		
+	uint8_t fade = 10;	
 	uint8_t random = 64;
 	
 	void refresh()

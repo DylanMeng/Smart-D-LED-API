@@ -8,7 +8,6 @@ protected:
 public:
 
 	uint8_t speed = 100;
-	uint8_t movingSpeed = 3;
 
 	void setPalette(uint8_t aPalette, uint8_t aBlendtype) {
 		
@@ -61,11 +60,9 @@ public:
 
 	void dynamic()
 	{
-		EVERY_N_MILLIS_I(masterSpeedTmp, 250)
-		{
-			colorIndex = colorIndex + movingSpeed;   //if it is 0, then it will all stay the same
+		EVERY_N_MILLISECONDS(20) {
+			colorIndex = colorIndex + speed;   //if it is 0, then it will all stay the same
 			fill_palette(dled.leds, dled.num_leds, colorIndex, 128 / dled.num_leds, gPal, dled.brightness, blendType);
-			masterSpeedTmp.setPeriod(speed);
 		}
 	}
 

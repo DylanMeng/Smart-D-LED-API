@@ -3,17 +3,16 @@ class pulseClass {
 public:
 
 	uint8_t rotateEnable = 0x00;
-
-	uint8_t bpm = 50;
-	
-	uint8_t hue = 100;
-
+	uint8_t bpm = 0x10;
+	uint8_t hue = 0x10;
+	uint8_t paletteId = cpPartyColors;
 	CRGBPalette16 gPal;
 
 	void setPalette(uint8_t aPalette) {
 
+		paletteId = aPalette;
 		// Palette select
-		switch (aPalette)
+		switch (paletteId)
 		{
 		case cpPartyColors:
 			gPal = PartyColors_p;
