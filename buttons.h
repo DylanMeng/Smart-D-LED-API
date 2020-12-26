@@ -120,7 +120,7 @@ public:
 
 					if (btn_1_state == HIGH) {
 
-						statusLed.blink(50, 5); // Blink to show boot up
+						statusLed.blink(50, 5); // Blink to show factory reset
 						first_time_prog_flash.write(true);
 						NVIC_SystemReset();
 
