@@ -11,6 +11,7 @@ class buttonClass {
 
 protected:
 
+
     // Button #1 with debouce                                   
 	uint8_t btn_1_state;
 	uint8_t btn_1_last_state = LOW;
@@ -102,8 +103,36 @@ public:
 	
 
 	void factory_reset() {
-		// TO-DO
+
+		unsigned long initial_wait_time = millis();
+
+		while (millis() - initial_wait_time <= 500)
+		{
+			int btn_1_reading = digitalRead(BTN_1_PIN);
+
+			if (btn_1_reading != btn_1_last_state) {
+				btn_1_last_debounce_time = millis();  // reset the debouncing timer
+			}
+			if ((millis() - btn_1_last_debounce_time) > btn_1_debounce_delay) {
+
+				if (btn_1_reading != btn_1_state) {
+					btn_1_state = btn_1_reading;
+
+					if (btn_1_state == HIGH) {
+
+						statusLed.blink(50, 5); // Blink to show boot up
+						first_time_prog_flash.write(true);
+						NVIC_SystemReset();
+
+					}
+				}
+			}
+
+			btn_1_last_state = btn_1_reading;
+
+		}
 	}
+
 
 };
 
